@@ -16,8 +16,11 @@ require('dotenv').config();
         'Authorization': `Bearer ${openaiApiKey}`
       },
       body: JSON.stringify({
-        model: 'gpt-3.5-turbo-1106',
-        prompt: `Summarize the following news article and identify the city where the article takes place:\n\n${content}\n\nSummary:`,
+        model: 'gpt-3.5-turbo',
+        messages: [
+          { role: 'system', content: 'You are a helpful assistant.' },
+          { role: 'user', content: `Make the city the first word, example say "City, In City" instead of "In city", and then Summarize the following news article and tell it like a story and identify the city where the article takes place. If you don't know the city, pick a random one in Ontario:\n\n${content}\n\nSummary:` }
+        ],
         max_tokens: 150,
         temperature: 0.7,
       })
@@ -28,7 +31,7 @@ require('dotenv').config();
     console.log("OpenAI API Response:", JSON.stringify(data, null, 2)); // Log the entire response
 
     if (data.choices && data.choices.length > 0) {
-      return data.choices[0].text.trim();
+      return data.choices[0].message.content.trim();
     } else {
       throw new Error("Invalid response from OpenAI API");
     }
@@ -36,7 +39,11 @@ require('dotenv').config();
 
   // Fetch top headlines in the US
   newsapi.v2.topHeadlines({
-    country: 'us'
+    country: 'ca',
+    category: 'business',
+    language: 'en'
+
+
   }).then(async response => {
     if (response.status === "ok") {
       await processArticles(response.articles);
