@@ -1,4 +1,4 @@
-# HawkHack2
+# HawkHack
 NewsBuzz
 
 Project Structure 📂
