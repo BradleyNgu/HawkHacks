@@ -1,7 +1,8 @@
 # HawkHack
 NewsBuzz
 
-Project Structure 📂
+## Project Structure 📂
+```
 newsbuzz/
 ├── client/              # React frontend
 │   ├── public/
@@ -13,18 +14,21 @@ newsbuzz/
 ├── .env                 # Environment variables for backend
 ├── package.json
 └── README.md            # Project documentation
-Install dependencies:
+```
+## Install dependencies:
+```bash
 npm install
 cd client
 npm install
-Packages to Install 📦
-Frontend:
-React: npx create-react-app client
-React Google Maps API: npm install @react-google-maps/api
-Axios: npm install axios
-Backend:
-Express: npm install express
-Node Fetch: npm install node-fetch
-Dotenv: npm install dotenv
-NewsAPI: npm install newsapi --save
-OpenAI: npm install openai
+```
+## Packages to Install 📦
+### Frontend:
+- React: npx create-react-app client
+- React Google Maps API: npm install @react-google-maps/api
+- Axios: npm install axios
+### Backend:
+- Express: npm install express
+- Node Fetch: npm install node-fetch
+- Dotenv: npm install dotenv
+- NewsAPI: npm install newsapi --save
+- OpenAI: npm install openai
