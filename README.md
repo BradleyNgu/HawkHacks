@@ -18,8 +18,6 @@ newsbuzz/
 ## Install dependencies:
 ```bash
 npm install
-cd client
-npm install
 ```
 ## Packages to Install 📦
 ### Frontend:
